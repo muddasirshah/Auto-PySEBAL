@@ -9,6 +9,9 @@ PySEBAL_dev_v3.8
 
 @author Sajid Pareeth
         February 2020
+
+@author Muddasir Shah        
+		January 2026
 """
 #import pdb
 import platform
@@ -41,8 +44,8 @@ def get_landsat_scenes_timeseries(latitude, longitude, buffer_km, start_date, en
     try:
         ee.data.getInfo(ee.Image(0))
     except:
-        service_account = "ndma-agriportal-sa@ee-muddasir-shah.iam.gserviceaccount.com"
-        gee_key_path = os.path.join(os.path.dirname(__file__), "gee_key.json")
+        service_account = "" #Earth Engine Service Account ID Here 
+        gee_key_path = os.path.join(os.path.dirname(__file__), "gee_key.json") # GEE API JSON Key 
         if os.path.exists(gee_key_path):
             credentials = ee.ServiceAccountCredentials(service_account, gee_key_path)
             ee.Initialize(credentials)
